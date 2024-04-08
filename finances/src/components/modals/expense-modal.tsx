@@ -25,6 +25,6 @@ import { ReactNode } from "react";
             <DialogContent>
                 Yeagggggg
             </DialogContent>
-        </Dialog>
+        </Dialog> 
     )
   }
