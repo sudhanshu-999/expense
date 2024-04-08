@@ -9,8 +9,16 @@ import { Spinner } from "@/components/spinner";
 import { cn } from "@/lib/utils";
 
 
+interface NavbarProps {
+  isCollapsed: boolean;
+  onResetWidth: () => void;
+};
 
-export const Navbar = () => {
+
+export const Navbar = ({
+  isCollapsed,
+  onResetWidth
+}: NavbarProps) => {
   const { isAuthenticated, isLoading } = useConvexAuth();
   
   return (
