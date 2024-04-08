@@ -1,13 +1,12 @@
 "use client";
 
 import {
+  Banknote,
+  BarChart4,
   ChevronsLeft,
   MenuIcon,
-  Plus,
-  PlusCircle,
-  Search,
-  Settings,
-  Trash
+  TrendingDown,
+  TrendingUp,
 } from "lucide-react";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import { ElementRef, useEffect, useRef, useState } from "react";
@@ -118,7 +117,7 @@ export const Navigation = () => {
       <aside
         ref={sidebarRef}
         className={cn(
-          "group/sidebar h-full bg-secondary overflow-y-auto relative flex w-60 flex-col z-[99999]",
+          "group/sidebar h-full bg-black overflow-y-auto relative flex w-60 flex-col z-[99999]",
           isResetting && "transition-all ease-in-out duration-300",
           isMobile && "w-0"
         )}
@@ -127,16 +126,36 @@ export const Navigation = () => {
           onClick={collapse}
           role="button"
           className={cn(
-            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-neutral-300 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
+            "h-6 w-6 text-muted-foreground rounded-sm hover:bg-white/90 dark:hover:bg-neutral-600 absolute top-3 right-2 opacity-0 group-hover/sidebar:opacity-100 transition",
             isMobile && "opacity-100"
           )}
         >
           <ChevronsLeft className="h-6 w-6" />
         </div>
-        <div>
-          
-        </div>
-        <div className="mt-4">
+       
+        <div className=" text-white flex flex-col m-4 mt-20 ">
+          <div className="flex mt-10 gap-2 items-center">
+          <BarChart4 className="h-8 w-8" />
+          <p>Dashboard</p>
+
+          </div>
+          <div className="flex mt-10 gap-2 items-center">
+          <TrendingDown className="h-8 w-8" />
+          <p>Expenses</p>
+
+          </div>
+          <div className="flex mt-10 gap-2 items-center">
+          <TrendingUp className="h-8 w-8"/>
+          <p>Income</p>
+
+          </div>
+          <div className="flex mt-10 gap-2 items-center">
+          <Banknote className="h-8 w-8"/>
+          <p>Transactions</p>
+
+          </div>
+
+
           
         </div>
         <div
