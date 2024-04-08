@@ -7,8 +7,8 @@ export default defineSchema({
       userId: v.string(),
       amount: v.number(),
       type: v.string(),
-      date: v.string(),
-      description: v.string()
+
+      description: v.optional(v.string())
       
     })
     .index("by_user", ["userId"])

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import "./globals.css";
 import { ConvexClientProvider } from "@/components/provider/convex-provider";
+import { Toaster } from "sonner";
 
 
 
@@ -20,6 +21,8 @@ export default function RootLayout({
 
       <body>
         <ConvexClientProvider>
+        <Toaster position="bottom-center" />
+
           {children}
         </ConvexClientProvider>
       </body>
