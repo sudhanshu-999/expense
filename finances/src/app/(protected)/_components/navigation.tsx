@@ -20,6 +20,7 @@ import { cn } from "@/lib/utils";
 
 
 import { Navbar } from "./navbar";
+import Link from "next/link";
 
 export const Navigation = () => {
   const router = useRouter();
@@ -136,12 +137,16 @@ export const Navigation = () => {
         <div className=" text-white flex flex-col m-4 mt-20 ">
           <div className="flex mt-10 gap-2 items-center">
           <BarChart4 className="h-8 w-8" />
+            <Link href={"/dashboard"}>
           <p>Dashboard</p>
+          </Link>
 
           </div>
           <div className="flex mt-10 gap-2 items-center">
           <TrendingDown className="h-8 w-8" />
+          <Link href={"/expenses"}>
           <p>Expenses</p>
+          </Link>
 
           </div>
           <div className="flex mt-10 gap-2 items-center">
