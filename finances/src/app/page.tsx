@@ -3,23 +3,56 @@ import Image from "next/image";
 import '@/app/main.css'
 import { SignInButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
-import { Navbar } from "./(protected)/_components/navbar";
+
+import { useConvexAuth } from "convex/react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 export default function Home() {
+    const router = useRouter();
+    const {isAuthenticated} = useConvexAuth();
+  
+
+
+
+
   return (
     <>
+    {!isAuthenticated ? (<>
+        <SignInButton>
+                <Button className="absolute right-6 top-4 ">
+                  Login
+                </Button>
+              </SignInButton>
+    </>):(
+        <>
+            
+                <div className="flex justify-end gap-8 px-8 py-4">
+                <Link href={"/dashboard"} >
+                        <Button className=" px-6 py-3  text-lg" >
+                        Explore
+                        </Button>
+                </Link>
+              
+                </div>
+            
+        </>
+    )
+    }
+
+
       
         
 
      
-              <SignInButton>
-                <Button>
-                  shittt
+              {/* <SignInButton>
+                <Button className="abso">
+                  Login
                 </Button>
               </SignInButton>
 
-            
+               */}
     <div className="main">
 
         <div id="page1">
