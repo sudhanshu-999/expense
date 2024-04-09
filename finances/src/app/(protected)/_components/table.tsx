@@ -1,3 +1,7 @@
+"use client"
+
+
+
 import {
     Table,
     TableBody,
@@ -7,28 +11,47 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
+import { useQuery } from "convex/react"
+import { api } from "../../../../convex/_generated/api"
 
 
 
   export const TableLayout = () =>{
+
+    const expenses = useQuery(api.expenses.getExpense)
+
+    if (!expenses) return null
+
+
+
+    
+
+
+
+
+
+
     return(
         <Table>
   <TableCaption>A list of your recent invoices.</TableCaption>
   <TableHeader>
     <TableRow>
-      <TableHead className="w-[100px]">Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
+      <TableHead className="w-[100px]">Title</TableHead>
+      <TableHead>Category</TableHead>
+      <TableHead>Description</TableHead>
       <TableHead className="text-right">Amount</TableHead>
     </TableRow>
   </TableHeader>
   <TableBody>
-    <TableRow>
-      <TableCell className="font-medium">INV001</TableCell>
-      <TableCell>Paid</TableCell>
-      <TableCell>Credit Card</TableCell>
-      <TableCell className="text-right">$250.00</TableCell>
+    {expenses.map((expense)=>(
+      <TableRow>
+      <TableCell className="font-medium">{expense.title}</TableCell>
+      <TableCell>{expense.type}</TableCell>
+      <TableCell>{expense.description}</TableCell>
+      <TableCell className="text-right">{expense.amount}</TableCell>
     </TableRow>
+
+    ))}
   </TableBody>
 </Table>
 
