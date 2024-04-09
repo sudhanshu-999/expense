@@ -4,9 +4,17 @@ import {
     Dialog,
     DialogContent,
     DialogHeader,
-    DialogTrigger
+    DialogTrigger,
+    DialogClose
   } from "@/components/ui/dialog";
-import { ReactNode } from "react";
+import { ReactNode, useRef } from "react";
+import { Input } from "../ui/input";
+import { ExpenseForm } from "../expense-form";
+import { Button } from "../ui/button";
+
+
+
+
 
   interface ExpenseModalProps {
     children: React.ReactNode;
@@ -17,13 +25,19 @@ import { ReactNode } from "react";
 
 
   export const ExpenseModal = ({children}: ExpenseModalProps) =>{
+    const inputRef = useRef<HTMLInputElement>(null);
+
     return(
         <Dialog>
             <DialogTrigger>
                 {children}
             </DialogTrigger>
             <DialogContent>
-                Yeagggggg
+            <DialogHeader className="flex items-center justify-center">
+                Enter your expense
+            </DialogHeader>
+            <ExpenseForm />
+            
             </DialogContent>
         </Dialog> 
     )
