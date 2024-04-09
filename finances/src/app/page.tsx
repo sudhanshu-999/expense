@@ -4,20 +4,37 @@ import '@/app/main.css'
 import { SignInButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "./(protected)/_components/navbar";
+import { useConvexAuth } from "convex/react";
 
 
 export default function Home() {
+
+    const {isAuthenticated}  = useConvexAuth()
+
+
+
+
+
   return (
     <>
-      
-        
 
-     
-              <SignInButton>
+
+    {!isAuthenticated ?  (<SignInButton>
+                <Button>
+                  shittt
+                </Button>
+              </SignInButton> ):(
+                <SignInButton>
                 <Button>
                   shittt
                 </Button>
               </SignInButton>
+              )}
+      
+        
+
+     
+             
 
             
     <div className="main">

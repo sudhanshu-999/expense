@@ -37,6 +37,9 @@ import { Button } from "../ui/button";
                 Enter your expense
             </DialogHeader>
             <ExpenseForm />
+   
+            
+            
             
             </DialogContent>
         </Dialog> 

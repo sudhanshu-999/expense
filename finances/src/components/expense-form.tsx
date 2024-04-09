@@ -18,6 +18,7 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
+import { DialogClose } from "./ui/dialog"
  
 const formSchema = z.object({
   title: z.string().min(2).max(50),
@@ -53,6 +54,7 @@ export const ExpenseForm = () =>{
         title: values.title,
         amount: values.amount,
         type: values.category,
+        description: values.description
 
        })
       }
@@ -122,8 +124,10 @@ export const ExpenseForm = () =>{
 
 
 
+<DialogClose>
 
           <Button type="submit" className="w-full">Add expense</Button>
+</DialogClose>
 
 
 
